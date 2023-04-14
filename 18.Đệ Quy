@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std; 
+ 
+ bool toanam( float a[], int x){
+ 	// neu chi con 1 gia tri trong mang va mang do kh am, thi tra ve false
+ 	if (x==1){
+ 		return a[0] < 0 ;
+ 	}
+ 	// de quy de? kiem tra cac phan tu con lai trong mang 
+ 	return (a[x-1] <0 ) && toanam (a, x-1);
+ 	}
+ 	
+int main(){
+	float a[]= { -2.1, -2.3, -4.5, -2.4};
+	int x= sizeof(a) / sizeof( a[0]);
+	
+	if ( toanam(a,x)){
+		cout << " mang thoa tinh chat \" toan am\"" << endl;
+	} else {
+	 		cout << " mang kh thoa tinh chat \"toan am\""  <<  endl;
+	} return 0;
+  	}
