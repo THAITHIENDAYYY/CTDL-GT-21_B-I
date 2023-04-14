@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+// ham de quy tìm gia tri lon nhattrong mang 
+double maxvl( double a[], int x){
+
+//neu chi co 1 gia tri thì ta vè no
+ if( x==1){
+ 	return a[0];
+ 	}
+
+//tim gi tri lon nhat trong mang 
+double max = maxvl ( a+1, x-1);
+
+// so sanh gia tri lon nhat tim duoc voi phan tu dau tien cua mang 
+if ( a[0] > max ) {
+	return a[0];
+	} else {
+	return max; 
+	}
+}
+ int main (){
+ 	double a[] ={ 5.2, 5.6, 6.2, 7.8};
+ 	int x= sizeof(a) / sizeof (a[0]) ;
+ 	double max= maxvl (a, x);
+ 	cout << " gia tri lon nhat trong mang =" << max << endl;
+ 	return 0; 
+ 	}
