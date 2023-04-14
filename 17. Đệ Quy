@@ -1,0 +1,20 @@
+#include <iostream>
+ 
+using namespace std; 
+
+float tongmang (float  a[], int x){
+	// neu chi co 1 phan tu trong mang thi tra gia tri do ve 0	
+	if (x==1){
+		return a[0];
+	}else {
+	// de quy tinh tong cac phan tu con lai trong mang va cong lai voi gia tri cua ohan tu cuoi cung 
+		return a[x-1] + tongmang(a, x-1);
+	}
+	}
+	int main(){
+		float a[]= { 3.4, 4.5, -6.5, 3.2, -7.1, 1.1};
+		int x= sizeof(a) /sizeof(a[0]);
+		
+		float tong= tongmang (a, x);
+		cout << " tong so thuc trong mang=" << tong << endl;
+		}
