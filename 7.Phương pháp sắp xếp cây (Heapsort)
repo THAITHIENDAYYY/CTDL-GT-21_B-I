@@ -1,0 +1,106 @@
+#include <iostream>
+
+using namespace std;
+
+void heapify(int arr[], int n, int i) {
+    int largest = i;
+    int l = 2 * i + 1;
+    int r = 2 * i + 2;
+
+    if (l < n && arr[l] > arr[largest])
+        largest = l;
+
+    if (r < n && arr[r] > arr[largest])
+        largest = r;
+
+    if (largest != i) {
+        swap(arr[i], arr[largest]);
+        heapify(arr, n, largest);
+    }
+}
+
+void heapSort(int arr[], int n) {
+    for (int i = n / 2 - 1; i >= 0; i--)
+        heapify(arr, n, i);
+
+    for (int i = n - 1; i >= 0; i--) {
+        swap(arr[0], arr[i]);
+        heapify(arr, i, 0);
+    }
+}
+
+int main() {
+    int arr[] = {41, 23, 4, 14, 56,
+#include <iostream>
+using namespace std;
+ 
+// Khai báo cấu trúc cây nhị phân
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+};
+ 
+// Hàm để tạo một node mới trong cây nhị phân
+Node* NewNode(int data) {
+    Node* node = new Node;
+    node->data = data;
+    node->left = nullptr;
+    node->right = nullptr;
+ 
+    return node;
+}
+ 
+// Hàm để thêm một node mới vào cây nhị phân
+Node* Insert(Node* node, int data) {
+    if (node == nullptr)
+        return NewNode(data);
+ 
+    if (data < node->data)
+        node->left = Insert(node->left, data);
+    else if (data > node->data)
+        node->right = Insert(node->right, data);
+ 
+    return node;
+}
+ 
+// Hàm để duyệt cây nhị phân theo thứ tự trung tâm (inorder)
+void Inorder(Node* root, int* arr, int& index) {
+    if (root != nullptr) {
+        Inorder(root->left, arr, index);
+        arr[index++] = root->data;
+        Inorder(root->right, arr, index);
+    }
+}
+ 
+// Hàm để sắp xếp một mảng sử dụng thuật toán sắp xếp cây
+void TreeSort(int arr[], int n) {
+    Node* root = nullptr;
+ 
+    // Thêm các phần tử vào cây nhị phân
+    for (int i = 0; i < n; i++)
+        root = Insert(root, arr[i]);
+ 
+    // Duyệt cây nhị phân và lưu trữ các phần tử vào mảng
+    int index = 0;
+    Inorder(root, arr, index);
+}
+ 
+// Hàm để in các phần tử của mảng
+void PrintArray(int arr[], int n) {
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+}
+ 
+// Hàm main
+int main() {
+    int arr[] = {41, 23, 4, 14, 56, 1};
+    int n = sizeof(arr) / sizeof(arr[0]);
+ 
+    TreeSort(arr, n);
+ 
+    cout << "Mang sau khi sap xep: \n";
+    PrintArray(arr, n);
+ 
+    return 0;
+}
