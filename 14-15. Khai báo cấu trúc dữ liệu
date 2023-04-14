@@ -1,0 +1,17 @@
+// cay nhi phan các so nguyen
+struct TreeNode {
+    int val;
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+
+---------------------------------------------------------------------
+ //danh sach lien ket kep cac so nguyen 
+ struct ListNode {
+    int val;
+    ListNode* next;
+    ListNode* prev;
+    ListNode(int x) : val(x), next(NULL), prev(NULL) {}
+};
