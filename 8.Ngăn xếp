@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+#define MAX_SIZE 100 // kích thước tối đa của stack
+
+int stack[MAX_SIZE];
+int top = -1; // khởi tạo giá trị top ban đầu là -1
+
+void push(int value) {
+    if (top == MAX_SIZE - 1) {
+        cout << "Stack overflow" << endl;
+        return;
+    }
+    top++;
+    stack[top] = value;
+}
+
+int pop() {
+    if (top == -1) {
+        cout << "Stack underflow" << endl;
+        return -1;
+    }
+    int value = stack[top];
+    top--;
+    return value;
+}
+
+void printStack() {
+    cout << "Stack: ";
+    for (int i = 0; i <= top; i++) {
+        cout << stack[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    // nhập các phần tử vào stack
+    push(41);
+    push(23);
+    push(4);
+    push(14);
+    push(56);
+    push(1);
+
+    // xuất giá trị top ra khỏi stack
+    int value = pop();
+    cout << "Top of stack: " << value << endl;
+
+    // in các phần tử trong stack còn lại
+    printStack();
+
+    return 0;
+}
