@@ -1,0 +1,22 @@
+#include<iostream> 
+
+using namespace std;
+ 
+ void mang( int a[], int size){
+ 	if( size ==1 ){
+ 		cout << a[0] << endl;
+ 		return ;
+ 	}
+ 	
+ cout << a[0] << ""; 
+ mang( a+1 , size-1 );
+ }
+ 
+ int main (){
+
+ int a[]= {1, 3, 5, 2, 6};
+ int size = sizeof(a) / sizeof(a[0]);
+ mang(a, size );
+ 
+ return 0;
+ }
