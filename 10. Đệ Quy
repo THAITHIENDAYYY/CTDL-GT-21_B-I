@@ -1,0 +1,32 @@
+	#include<iostream>
+
+using namespace std;
+
+int tongmang(int a[], int size){
+	//ktra dieu kien dung 
+	if(size==1){
+		if (a[0]%2==0){
+			return a[0];
+		} else{
+		return 0;
+	}
+}
+ 	 // neu ?phan tu hien tai la so chan, cong cac gia tri cua phan tu do vao tongmang va goi de quy voi mang con bat dau tu phan tu tiep theo 
+ 	 // neu phan tu hien tai la so le, chi goi de quy voi phan tu tiep theo cua mang 
+ 	if ( a[0]%2==0){
+ 		return a[0]+ tongmang(a+1, size-1);
+ 		
+ 		}else{
+ 			
+ 		 return tongmang(a+1, size-1);
+ 		 }
+ 	}
+ 	
+ 	int main(){
+ 		int a[]= { 2, 4, 4, 6, 7, 9, 9, 2};
+ 		int size = sizeof(a) / sizeof(a[0]);
+ 		
+ 		int sum= tongmang(a, size);
+ 		cout << " tong mang la: " << sum << endl;
+ 		return 0;
+ 	}
