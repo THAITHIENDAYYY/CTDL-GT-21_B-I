@@ -1,0 +1,23 @@
+# include<iostream> 
+
+using namespace std;
+
+int dem(double a[], int n){
+	if ( n==0){
+		return 0;		
+	} else {
+		if( a[0]>0){
+			return 1 + dem (a+1, n-1);
+		} else {
+		 return dem(a+1, n-1);
+		}
+	}
+ 	}	
+ 	
+ 	int main(){
+ 		double a[]= { 1, -2,-3, -4, 5, 5};
+ 		int n= sizeof(a) / sizeof (a[0]);
+ 		
+ 		int demmang= dem(a, n);
+ 		cout << " dem so thuc= " << demmang << endl; 
+ 	}	# CTDL-GT-21_B-I
