@@ -1,0 +1,25 @@
+# include<iostream> 
+
+using namespace std;
+
+int dem(float a[], int size){
+	if ( size ==0 ){
+	 return 0;
+}
+    if ( a[0] > 0) {
+       return 1 + dem(a +1 , size-1 );
+    } else {
+    	return dem( a+1, size-1);
+	}
+}
+
+int main(){
+
+float a[]= { -2.3, -2.0, 3.1, 4.5, 6.6};
+ int size = sizeof(a) / sizeof(a[0]);
+
+ int demmang = dem( a, size);	
+//int demmang = dem(a, 6);
+ cout << " dem so chan la=" << demmang << endl; 
+ return 0;
+ }
