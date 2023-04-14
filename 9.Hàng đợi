@@ -1,0 +1,64 @@
+#include <iostream>
+using namespace std;
+
+#define MAX_SIZE 100 // kích thước tối đa của hàng đợi
+
+int queue[MAX_SIZE];
+int front = -1; // khởi tạo giá trị front ban đầu là -1
+int rear = -1; // khởi tạo giá trị rear ban đầu là -1
+
+void enqueue(int value) {
+    if (rear == MAX_SIZE - 1) {
+        cout << "Queue overflow" << endl;
+        return;
+    }
+    rear++;
+    queue[rear] = value;
+    if (front == -1) {
+        front = 0;
+    }
+}
+
+int dequeue() {
+    if (front == -1) {
+        cout << "Queue underflow" << endl;
+        return -1;
+    }
+    int value = queue[front];
+    if (front == rear) {
+        front = -1;
+        rear = -1;
+    } else {
+        front++;
+    }
+    return value;
+}
+
+void printQueue() {
+    cout << "Queue: ";
+    for (int i = front; i <= rear; i++) {
+        cout << queue[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    // nhập các phần tử vào hàng đợi
+    enqueue(41);
+    enqueue(23);
+    enqueue(4);
+    enqueue(14);
+    enqueue(56);
+    enqueue(1);
+
+    // thêm vào phần tử 55
+    enqueue(55);
+
+    // loại bỏ phần tử 23
+    dequeue();
+
+    // in hàng đợi sau khi thêm và bỏ
+    printQueue();
+
+    return 0;
+}
